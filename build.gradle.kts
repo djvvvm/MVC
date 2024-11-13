@@ -7,8 +7,10 @@ tasks.register<Exec>("runApp") {
 tasks.register<Exec>("testApp") {
     group = "verification"
     description = "Run Python unit tests with pytest"
+    environment("PYTHONPATH", projectDir.toString()) // Додаємо кореневу директорію до PYTHONPATH
     commandLine("pytest", "--junitxml=build/test-results/test/results.xml", "tests")
 }
+
 
 tasks.register("build") {
     group = "build"

@@ -6,8 +6,8 @@ tasks.register<Exec>("runApp") {
 
 tasks.register<Exec>("testApp") {
     group = "verification"
-    description = "Run Python unit tests"
-    commandLine("python3", "-m", "unittest", "discover", "-s", "tests")
+    description = "Run Python unit tests with pytest"
+    commandLine("pytest", "--junitxml=build/test-results/test/results.xml", "tests")
 }
 
 tasks.register("build") {
